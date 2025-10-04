@@ -116,7 +116,7 @@ import re
 
 
 # ---------------- parsing helpers ----------------
-def parse_blocks_from_text() -> dict:
+def load_blocks() -> dict:
     with open("blocks.json", "r", encoding='utf-8') as f:
         return json.load(f)
 
@@ -208,17 +208,7 @@ def run_quiz(blocks: dict):
 # ---------------- entry point ----------------
 if __name__ == "__main__":
     # Option A (default): parse from the raw_text variable above
-    blocks = parse_blocks_from_text()
-
-    # Option B: if you prefer to store the vocabulary in "vocab.txt" (UTF-8),
-    # uncomment the lines below and comment out Option A:
-    # with open("vocab.txt", encoding="utf-8") as f:
-    #     blocks = parse_blocks_from_text(f.read())
-
-    # If you already have a dict `words_by_block = {30: [...], 31: [...], ...}`,
-    # you can simply do: blocks = words_by_block
-    # with open("blocks.json", "w", encoding='utf-8') as f:
-        # json.dump(blocks, f, ensure_ascii=False, indent=2)
+    blocks = load_blocks()
     run_quiz(blocks)
 
     
