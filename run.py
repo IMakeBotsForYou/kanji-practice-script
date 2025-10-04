@@ -207,8 +207,7 @@ def run_quiz(blocks: dict):
 
 # ---------------- entry point ----------------
 if __name__ == "__main__":
-    # Option A (default): parse from the raw_text variable above
     blocks = load_blocks()
     run_quiz(blocks)
-
+    input() # Freeze 
     
