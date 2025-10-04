@@ -186,7 +186,7 @@ def run_quiz(blocks: dict):
                     print("-" * 30)
                     continue
 
-                print(f"Kanji: {kanji} | {pct}% done | {round(len(1-(100*wrong_answers/i)), 2)}% success rate")
+                print(f"Kanji: {kanji} | {pct}% done | {round(100-(100*len(wrong_answers)/(i+1)), 2)}% success rate")
                 got_it = input("Did you get it right? (Y/N) -> ").strip().upper()
                 if got_it != 'Y':
                     wrong_answers.append((kanji, reading))
