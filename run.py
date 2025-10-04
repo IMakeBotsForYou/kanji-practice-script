@@ -155,6 +155,7 @@ def run_quiz(blocks: dict):
 
     subset = []
     for n in ns:
+        n = str(n)
         if n not in blocks:
             print(f"  Warning: block n{n} not found — skipping")
             continue
@@ -172,7 +173,7 @@ def run_quiz(blocks: dict):
 
             for i, (kanji, reading) in enumerate(subset):
                 pct = round(100 * (i + 1) / len(subset), 2)
-                print(f"{pct}% — Reading: {reading}")
+                print(f"Reading: {reading}")
                 cmd = input("Press Enter to reveal, or type 'q' to quit, 's' to skip -> ").strip().lower()
                 if cmd == 'q':
                     print("Quitting.")
@@ -185,7 +186,7 @@ def run_quiz(blocks: dict):
                     print("-" * 30)
                     continue
 
-                print(f"Kanji: {kanji}")
+                print(f"Kanji: {kanji} | {pct}% done | {round(len(1-(100*wrong_answers/i)), 2)}% success rate")
                 got_it = input("Did you get it right? (Y/N) -> ").strip().upper()
                 if got_it != 'Y':
                     wrong_answers.append((kanji, reading))
