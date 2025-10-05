@@ -166,11 +166,12 @@ def run_quiz(blocks: dict):
         return
 
     random.shuffle(subset)
+    
 
     try:
         while True:
             wrong_answers = []  # store cards you got wrong
-
+            
             for i, (kanji, reading) in enumerate(subset):
                 pct = round(100 * (i + 1) / len(subset), 2)
                 print(f"Reading: {reading}")
