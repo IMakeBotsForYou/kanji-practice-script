@@ -137,7 +137,7 @@ def parse_range_string(s: str) -> list:
             a, b = part.split('-', 1)
             ns.update(range(int(a), int(b) + 1))
         else:
-            ns.add(int(part))
+            ns.add(part)
     return sorted(ns)
 
 # ---------------- quiz runner ----------------
